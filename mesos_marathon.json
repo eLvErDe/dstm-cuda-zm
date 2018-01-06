@@ -1,6 +1,6 @@
 {
   "id": "/mining/dstm-cuda-zm",
-  "cmd": "/root/dstm-zm --server europe.equihash-hub.miningpoolhub.com --port 20575 --user acecile.mesos-earthlab --pass x --telemetry=0.0.0.0:$PORT0",
+  "cmd": "/root/dstm-zm --server europe.equihash-hub.miningpoolhub.com --port 20575 --user acecile.mesos --pass x --telemetry=0.0.0.0:$PORT0",
   "cpus": 0.1,
   "gpus": 1,
   "mem": 128,
