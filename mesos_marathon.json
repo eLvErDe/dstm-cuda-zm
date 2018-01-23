@@ -9,7 +9,7 @@
   "container": {
     "type": "MESOS",
     "docker": {
-      "image": "acecile/dstm-cuda-zm:latest",
+      "image": "acecile/dstm-cuda-zm:0.5.7",
       "forcePullImage": true
     }
   }

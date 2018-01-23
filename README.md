@@ -10,26 +10,26 @@ It has also been tested successfully on [Mesos] 1.2.1.
 ```
 git clone https://github.com/eLvErDe/docker-dstm-cuda-zm
 cd docker-dstm-cuda-zm
-docker build -t dstm-cuda-zm .
+docker build -t dstm-cuda-zm:0.5.7 .
 ```
 
 ## Publish it somewhere
 
 ```
-docker tag dstm-cuda-zm docker.domain.com/mining/dstm-cuda-zm
-docker push docker.domain.com/mining/dstm-cuda-zm
+docker tag dstm-cuda-zm:0.5.7 docker.domain.com/mining/dstm-cuda-zm:0.5.7
+docker push docker.domain.com/mining/dstm-cuda-zm:0.5.7
 ```
 
 ## Test it (using dockerhub published image)
 
 ```
-nvidia-docker pull acecile/dstm-cuda-zm:latest
-nvidia-docker run -it --rm acecile/dstm-cuda-zm /root/dstm-zm --help
+nvidia-docker pull acecile/dstm-cuda-zm:0.5.7
+nvidia-docker run -it --rm acecile/dstm-cuda-zm:0.5.7 /root/dstm-zm --help
 ```
 
 An example command line to mine using miningpoolhub.com on Zclassic (on my account, you can use it to actually mine something for real if you haven't choose your pool yet):
 ```
-nvidia-docker run -it --rm --name dstm-cuda-zm acecile/dstm-cuda-zm /root/dstm-zm --server europe.equihash-hub.miningpoolhub.com --port 20575 --user acecile.catchall --pass x --telemetry=0.0.0.0:4068
+nvidia-docker run -it --rm --name dstm-cuda-zm acecile/dstm-cuda-zm:0.5.7 /root/dstm-zm --server europe.equihash-hub.miningpoolhub.com --port 20575 --user acecile.catchall --pass x --telemetry=0.0.0.0:4068
 ```
 
 Ouput will looks like:
@@ -51,7 +51,7 @@ Ouput will looks like:
 ## Background job running forever
 
 ```
-nvidia-docker run -dt --restart=unless-stopped -p 4068:4068 --name dstm-cuda-zm acecile/dstm-cuda-zm /root/dstm-zm --server europe.equihash-hub.miningpoolhub.com --port 20575 --user acecile.catchall --pass x --telemetry=0.0.0.0:4068
+nvidia-docker run -dt --restart=unless-stopped -p 4068:4068 --name dstm-cuda-zm acecile/dstm-cuda-zm:0.5.7 /root/dstm-zm --server europe.equihash-hub.miningpoolhub.com --port 20575 --user acecile.catchall --pass x --telemetry=0.0.0.0:4068
 ```
 
 You can check the output using `docker logs dstm-cuda-zm -f`
